@@ -5,13 +5,13 @@ This is a summary of what was done as part of Google Summer of Code 2020 during 
 I would like to thank Dr. Mohit P. Tahiliani for motivating me to apply for the program, my mentor Tomasso Pecorella for the guidance throughout the program. I would also like to thank Tom Henderson,  Rediet and all the others who helped me increase the quality of my work.
 
 
-#Introduction
+# Introduction
 
 Network device or Net device is the representation of Network Interface Card (NIC). Any network transaction is made through a Network device, that is, a device that is able to exchange data with other hosts. Usually, a Network device is a hardware device, but it might also be a pure software device, like the loopback interface. A network device is in charge of sending and receiving data packets, driven by the network subsystem of the kernel, without knowing how individual transactions map to the actual packets being transmitted. Many network connections (especially those using TCP) are stream-oriented, but network devices are, usually, designed around the transmission and receipt of packets. It resides in L2 (Link layer) in the Linux network stack. NICs are of different types that enable communication with different types of networks. For example, if you want to connect your computer into a LAN, your computer needs an Ethernet card installed on it. Same goes for Wifi, LTE, etc.
  
 Ns-3 offers a rich set of Network devices which helps simulate various types of network. Prominent Net devices include WifiNetDevice that enables simulation of wireless networks, PointToPointNetDevice that can be used to simulate point-to-point networks, CsmaNetDevice that can be used to simulate Ethernet topologes, LteNetDevice for LTE networks, etc.
 
-#States of a Net device
+# States of a Net device
 
 Linux distinguishes between the administrative and operational state of an interface. The administrative state is the result of "ip link set dev <dev> up or down" and reflects whether the administrator wants to use the device for traffic.
 
@@ -19,7 +19,7 @@ However, an interface is not usable just because the admin enabled it - ethernet
 
 IP layer, DHCP, FIB, etc listens in to the state of a net device and whenever state changes they take appropriate measures. For example, When the administrative device of a Net device is set to DOWN, IP needs to be disabled for that device and routes associated with the device needs to be updated so that those routes are no longer used.  
 
-#Problem Statement
+# Problem Statement
 
 ns-3 has facilities (i.e functions and variables) to store the link state of the device as well as propagate the state change to upper layers and services. But the usage of these facilities are not consistent among Net devices.
 
@@ -29,7 +29,7 @@ The state changes are directly related to the presence or absence of a channel. 
 
 Moreover, IP interfaces do not listen to the state changes happening in the Net device. Therefore IP is unable to react to state changes. 
 
-#Project Overview 
+# Project Overview 
 
 The project is divided into three phases as follows:
 
@@ -40,7 +40,7 @@ The project is divided into three phases as follows:
 
  
 
-##Phase 1: Define behavior of NetDevice API and correct P2PNetDevice.
+## Phase 1: Define behavior of NetDevice API and correct P2PNetDevice.
 
 In this phase, Linux kernel code was examined to get a glimpse of the working of net device states and on the basis of that an architecture was created. All throughout the coding period, the architecture went through several changes as suggested by mentors. As a result, the final proposal is modeled after RFC 2863: The Interfaces Group MIB. 
 
@@ -49,7 +49,7 @@ We created a class NetDeviceState that contains administrative and operational s
 It was decided that instead of extending NetDeviceState class for PointToPointNetDevice, it would be better to extend it for CsmaNetDevice. This is because CsmaNetDevice can be attached, detached and reattached from the channel and it would be more suitable than PointToPointNetDevice to test the architecture. 
 
 
-##Phase 2:  Correct CsmaNetDevice and WifiNetDevice. 
+## Phase 2:  Correct CsmaNetDevice and WifiNetDevice. 
 
 CsmaNetDevice is the first net device that we tested the new architecture on. The following changes were made in csma-module to properly change operational states:
 
@@ -67,7 +67,7 @@ Added functions in AP, STA, AdHoc MAC to turn on/off PHY and cancel/restart prob
 
 Before sending and receiving packets, administrative and operational states are checked and will go ahead only when the device is operational.
 
-##Phase 3
+## Phase 3
 
 
 
