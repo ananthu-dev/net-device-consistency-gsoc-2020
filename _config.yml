@@ -1,1 +1,5 @@
-theme: jekyll-theme-leap-day
+theme: jekyll-theme-cayman
+page.title: "GSoC 2020: NetDevice Up/Down Consistency and Eventchain"
+
+site:
+  github.owner_name: "Ananthakrishnan S"
