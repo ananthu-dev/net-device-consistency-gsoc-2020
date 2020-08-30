@@ -1,8 +1,13 @@
 # NetDevice Up/Down Consistency and Event Chain
 
-This is a summary of what was done as part of Google Summer of Code 2020 during June 2020 to August 2020 with the organization [ns-3] (https://www.nsnam.org/). 
+This is a summary of what was done as part of Google Summer of Code 2020 during June 2020 to August 2020 with the organization [ns-3](https://www.nsnam.org/).
 
-I would like to thank Dr. Mohit P. Tahiliani for motivating me to apply for the program, my mentor Tomasso Pecorella for the guidance throughout the program. I would also like to thank Tom Henderson,  Rediet and all the others who helped me increase the quality of my work.
+Student: [Ananthakrishnan S](mailto:ananthakrishnan190@gmail.com) 
+
+Mentor: [Tommaso Pecorella](mailto:tpecorella@mac.com)
+
+
+I would like to thank Dr. Mohit P. Tahiliani for motivating me to apply for the program, my mentor Tommaso Pecorella for the guidance throughout the program. I would also like to thank Tom Henderson,  Rediet and all the others who helped me increase the quality of my work.
 
 # Introduction
 
@@ -127,7 +132,7 @@ Other additions include:
 
 * Test suite and example program are created to verify and demonstrate the working of states in CsmaNetDevice.
 
-* A fix was provided by my mentor Tomasso Pecorella [@tommypec](https://gitlab.com/tommypec) to fix issue #234 and it is intergrated into the csma-module.
+* A fix was provided by my mentor Tommaso Pecorella [@tommypec](https://gitlab.com/tommypec) to fix issue #234 and it is intergrated into the csma-module.
 
 A [merge request](https://gitlab.com/nsnam/ns-3-dev/-/merge_requests/353) is generated for this work which is under review.
 
