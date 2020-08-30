@@ -1,6 +1,6 @@
 # NetDevice Up/Down Consistency and Event Chain
 
-This is a summary of what was done as part of Google Summer of Code 2020 during June 2020 to August 2020 with the organization ns-3. 
+This is a summary of what was done as part of Google Summer of Code 2020 during June 2020 to August 2020 with the organization [ns-3] (https://www.nsnam.org/). 
 
 I would like to thank Dr. Mohit P. Tahiliani for motivating me to apply for the program, my mentor Tomasso Pecorella for the guidance throughout the program. I would also like to thank Tom Henderson,  Rediet and all the others who helped me increase the quality of my work.
 
@@ -109,7 +109,7 @@ It was decided that instead of extending NetDeviceState class for PointToPointNe
 
 Csma module was examined and following problems were identified:
 
-* `CsmaNetDevice` can be attached, detached and reattached from a `CsmaChannel` using `int32_t Attach ()`, `bool Reattach ()` and `bool Reattach ()` functions present in `CsmaChannel`. These functions doesnot modify the state of the device. This means even when the device is detached, state of the device stays UP. An [issue #234](https://gitlab.com/nsnam/ns-3-dev/-/issues/234) was created on [ns-3-dev](https://gitlab.com/nsnam/ns-3-dev) repository in Gitlab describing this issue.
+* `CsmaNetDevice` can be attached, detached and reattached from a `CsmaChannel` using `int32_t Attach ()`, `bool Detach ()` and `bool Reattach ()` functions present in `CsmaChannel`. These functions doesnot modify the state of the device. This means even when the device is detached, state of the device stays UP. An [issue #234](https://gitlab.com/nsnam/ns-3-dev/-/issues/234) was created on [ns-3-dev](https://gitlab.com/nsnam/ns-3-dev) repository in Gitlab describing this issue.
 
 * State of the device is not taken into consideration when received packet is processed.
 
@@ -127,7 +127,7 @@ Other additions include:
 
 * Test suite and example program are created to verify and demonstrate the working of states in CsmaNetDevice.
 
-* A fix was provided by my mentor Tomasso Pecorella [https://gitlab.com/tommypec](@tommypec) to fix issue #234 and it is intergrated into the csma-module.
+* A fix was provided by my mentor Tomasso Pecorella [@tommypec](https://gitlab.com/tommypec) to fix issue #234 and it is intergrated into the csma-module.
 
 A [merge request](https://gitlab.com/nsnam/ns-3-dev/-/merge_requests/353) is generated for this work which is under review.
 
@@ -157,7 +157,7 @@ At the time of writing this report, last two issues have been addressed and is u
 
 # What is next?
 
-Unfortunately, not all goals as described in the project is not accomplished. The following goals are remaining and will be completed in coming days:
+Unfortunately,not all goals as described in the project is not accomplished. The following goals are remaining and will be completed in coming days:
 
 * Completion of work remaining in PointToPoint module.
 * Examination of higher layer protocols to verify that they are properly reacting to state changes.
