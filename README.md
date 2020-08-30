@@ -157,7 +157,7 @@ At the time of writing this report, last two issues have been addressed and is u
 
 # What is next?
 
-Unfortunately,not all goals as described in the project is not accomplished. The following goals are remaining and will be completed in coming days:
+Unfortunately, not all goals as described in the project are accomplished. The following goals are remaining and will be completed in coming days:
 
 * Completion of work remaining in PointToPoint module.
 * Examination of higher layer protocols to verify that they are properly reacting to state changes.
