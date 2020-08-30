@@ -146,6 +146,12 @@ Out of all the netdevices that are selected to correct as part of this project, 
 
 * Before sending and receiving packets, administrative and operational states are checked and will go ahead only when the device is operational.
 
+* Added unit tests to verify working of NetDeviceState when AP, STA and AdHoc MACs are used.
+
+* Example program to show NetDeviceState implementation in action with the help of DHCP.
+
+A [merge request](https://gitlab.com/nsnam/ns-3-dev/-/merge_requests/390) has been made to merge this work which is under review.
+
 ## Phase 3
 
 In Phase 3, it was planned to examine higher layer protocols such as IPV4, IPv6, DHCP, ARP etc to see whether they are correctly reacting to state changes happening in the Net device. Unfortunately I was not able to do that. IT was decided to work on `PointToPointNetDevice` that was postponed in Phase 1. 
